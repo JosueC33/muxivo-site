@@ -65,20 +65,20 @@ problem.
 
 Some soundtracks cannot be decoded without licensed decoders that are not
 available to third-party apps — Dolby TrueHD and the lossless layer of DTS-HD
-Master Audio are the common cases. Where a disc includes a second, ordinary
+Master Audio are the common cases. Where the file includes a second, ordinary
 soundtrack, Muxivo switches to it automatically and tells you it has done so in
 the Audio menu. Where it doesn't, there is unfortunately nothing we can do.
 
 ### The subtitles are missing or unstyled
 
-Text subtitles appear in the Subtitles menu. Blu-ray picture subtitles and
+Text subtitles appear in the Subtitles menu. Image-based subtitle tracks and
 heavily styled subtitles are drawn into the video itself, which requires
 converting the file first — so choosing one starts a conversion rather than
 appearing instantly.
 
 ### A large film takes a while to start
 
-Muxivo indexes a file before playing it, and a very large disc rip — 30 GB and
+Muxivo indexes a file before playing it, and a very large file — 30 GB and
 up — can take a few seconds. Ordinary files start in well under a second.
 
 ---
