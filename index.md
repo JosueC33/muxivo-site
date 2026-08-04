@@ -8,7 +8,9 @@ title: Muxivo
 
 Muxivo opens MKV, AVI, TS and the rest, then streams them to any AirPlay
 television with video *and* audio. Other players can send the sound and leave
-the picture on your Mac; Muxivo sends the film.
+the picture on your device; Muxivo sends the film.
+
+Available for **Mac, iPhone and iPad**.
 
 - **MKV, MP4, AVI, WebM, TS/M2TS, VOB** — including high-bitrate HD video
 - **Subtitles that work** — SRT, styled ASS, and image-based subtitle tracks

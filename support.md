@@ -4,10 +4,15 @@ title: Support
 
 # Muxivo Support
 
-Muxivo plays the video files other Mac players struggle with — MKV, AVI, TS and
+Muxivo plays the video files other players struggle with — MKV, AVI, TS and
 more — and sends them to your TV over AirPlay with **picture as well as sound**.
+It runs on the Mac, and on iPhone and iPad.
 
 **Contact: [open an issue on GitHub](https://github.com/JosueC33/muxivo-site/issues)** — a real person reads these, and you can see the answers to everyone else's questions too.
+
+Muxivo can open that page for you with your version already filled in: on the
+Mac it is in the gear menu at the bottom of the sidebar, and on iPhone and iPad
+it is in Settings, under Support.
 
 ---
 
@@ -25,7 +30,9 @@ AirPlay, only audio.
 Give it a few seconds — device discovery is not instant, and Muxivo shows
 "searching for devices" until one is found. If it stays empty:
 
-- Make sure the Mac and TV are on the same Wi-Fi network
+- Make sure your device and the TV are on the same Wi-Fi network. On iPhone
+  and iPad, check you are on Wi-Fi at all — Muxivo sends video to the TV across
+  your local network, so it cannot work on cellular alone.
 - **Check whether a VPN is running.** This is the most common cause. Many VPNs
   block local network traffic, which stops the TV fetching video from your Mac.
   Pausing the VPN is often not enough — quit it completely and try again.
@@ -43,6 +50,11 @@ minute before assuming it has failed.
 If it still refuses, it helps enormously to tell us the make and model of the
 TV along with the file's format, since receiver behaviour varies a lot between
 brands.
+
+### Does this work from an iPhone or iPad?
+
+Yes, and the same way: the video is converted on the device and the television
+fetches it from there. Both need to be on the same Wi-Fi network.
 
 ### It worked before and stopped
 
@@ -90,11 +102,13 @@ The more of this you can include, the faster it gets fixed:
 1. What you did and what happened
 2. The file's format, and its name if you don't mind sharing it
 3. Whether you were streaming to a TV, and which TV
-4. Your macOS version
+4. Your macOS or iOS version, and which device
 
-If you're comfortable at the command line, running Muxivo from Terminal with
-`AIRPLAYER_DEBUG=1` prints a detailed log of what the player decided and why.
-Pasting that into your message is the single most useful thing you can send.
+On iPhone and iPad, **Settings ▸ Diagnostics** shows what the player decided
+and why. Copying that in is the single most useful thing you can send.
+
+On the Mac, the equivalent is running Muxivo from Terminal with
+`MUXIVO_DEBUG=1`, which prints the same detail to the console.
 
 ---
 
