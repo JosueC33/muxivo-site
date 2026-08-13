@@ -22,8 +22,8 @@ Each is roughly 4 MB.
 **Mac** — download a file, then open Muxivo and choose **File ▸ Open**, or drag
 the file onto the window. No account or server is required for local playback.
 
-**iPhone and iPad** — download a file, then open Muxivo, tap **+** in the
-Library, and pick it from the Files app.
+**iPhone and iPad** — not yet. Those versions are [being worked on](roadmap).
 
 To put one on a television, start playback and use the AirPlay control in the
-player. Any Apple TV or AirPlay-compatible television will do.
+player. Any Apple TV or other AirPlay-compatible television works as the
+receiver.

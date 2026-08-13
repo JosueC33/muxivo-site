@@ -6,13 +6,13 @@ title: Support
 
 Muxivo plays the video files other players struggle with — MKV, AVI, TS and
 more — and sends them to your TV over AirPlay with **picture as well as sound**.
-It runs on the Mac, and on iPhone and iPad.
+It runs on the Mac. There is no iPhone or iPad app yet, and no app that runs on
+the Apple TV itself — those are [being worked on](roadmap).
 
 **Contact: [open an issue on GitHub](https://github.com/JosueC33/muxivo-site/issues)** — a real person reads these, and you can see the answers to everyone else's questions too.
 
-Muxivo can open that page for you with your version already filled in: on the
-Mac it is in the gear menu at the bottom of the sidebar, and on iPhone and iPad
-it is in Settings, under Support.
+Muxivo can open that page for you with your version already filled in: it is in
+the gear menu at the bottom of the sidebar.
 
 ---
 
@@ -30,9 +30,7 @@ AirPlay, only audio.
 Give it a few seconds — device discovery is not instant, and Muxivo shows
 "searching for devices" until one is found. If it stays empty:
 
-- Make sure your device and the TV are on the same Wi-Fi network. On iPhone
-  and iPad, check you are on Wi-Fi at all — Muxivo sends video to the TV across
-  your local network, so it cannot work on cellular alone.
+- Make sure your Mac and the TV are on the same Wi-Fi network.
 - **Check whether a VPN is running.** This is the most common cause. Many VPNs
   block local network traffic, which stops the TV fetching video from your Mac.
   Pausing the VPN is often not enough — quit it completely and try again.
@@ -42,19 +40,23 @@ Give it a few seconds — device discovery is not instant, and Muxivo shows
 ### The TV connects but the video won't play
 
 Some televisions accept a narrower range of video than they advertise —
-unusual resolutions, high frame rates, or very high bitrates. Muxivo notices a
-refusal and automatically converts the file into something more conservative,
-then tries again. That conversion takes a little time, so give it up to a
-minute before assuming it has failed.
+unusual resolutions, high frame rates, or very high bitrates. When one refuses
+a stream it does not announce it: Muxivo shows the TV as connected and the
+picture never arrives. Waiting will not change it. Stop the cast and start it
+again, and if the same film fails twice, try a different one — that tells you
+whether the problem is the television or that particular file.
 
-If it still refuses, it helps enormously to tell us the make and model of the
-TV along with the file's format, since receiver behaviour varies a lot between
-brands.
+It helps enormously to tell us the make and model of the TV along with the
+file's format, since receiver behaviour varies a lot between brands.
 
 ### Does this work from an iPhone or iPad?
 
-Yes, and the same way: the video is converted on the device and the television
-fetches it from there. Both need to be on the same Wi-Fi network.
+Not yet — Muxivo is a Mac app, and iPhone and iPad versions are
+[being worked on](roadmap).
+
+From the Mac it works the way you'd expect: the video is converted on the Mac
+and the television fetches it from there. Both need to be on the same Wi-Fi
+network.
 
 ### It worked before and stopped
 
@@ -68,9 +70,9 @@ instance after you migrate to a new computer.
 
 ### A file won't open
 
-Muxivo plays MKV, MP4, MOV, AVI, WebM, TS/M2TS and VOB. If a file in one of
-those formats won't open, please send us the exact name and, if you know it,
-the video and audio formats inside — that is usually enough to identify the
+Muxivo plays MKV, MP4, MOV, AVI, TS/M2TS and VOB. If a file in one of those
+formats won't open, please send us the exact name and, if you know it, the
+video and audio formats inside — that is usually enough to identify the
 problem.
 
 ### The video plays but there's no sound
@@ -83,15 +85,22 @@ the Audio menu. Where it doesn't, there is unfortunately nothing we can do.
 
 ### The subtitles are missing or unstyled
 
-Text subtitles appear in the Subtitles menu. Image-based subtitle tracks and
-heavily styled subtitles are drawn into the video itself, which requires
-converting the file first — so choosing one starts a conversion rather than
-appearing instantly.
+Text subtitles appear in the Subtitles menu — both SRT files sitting beside the
+video and text tracks stored inside it. They are drawn with the words and their
+position on screen; the colours, fonts and effects that heavily styled
+subtitles carry are not drawn today.
+
+Subtitles that are pictures rather than text have to be drawn into the video
+itself, so choosing one starts a conversion rather than appearing instantly.
+That works for Blu-ray subtitle tracks in an MKV. Other picture subtitles are
+listed in the menu and will not appear — that one is ours to fix.
 
 ### A large film takes a while to start
 
 Muxivo indexes a file before playing it, and a very large file — 30 GB and
-up — can take a few seconds. Ordinary files start in well under a second.
+up — can take a few seconds. Most files start in about a second. A film that
+isn't an ordinary widescreen shape — scope-ratio cinema, or older
+standard-definition material — takes a couple of seconds longer.
 
 ---
 
@@ -102,13 +111,10 @@ The more of this you can include, the faster it gets fixed:
 1. What you did and what happened
 2. The file's format, and its name if you don't mind sharing it
 3. Whether you were streaming to a TV, and which TV
-4. Your macOS or iOS version, and which device
+4. Your macOS version, and which Mac
 
-On iPhone and iPad, **Settings ▸ Diagnostics** shows what the player decided
-and why. Copying that in is the single most useful thing you can send.
-
-On the Mac, the equivalent is running Muxivo from Terminal with
-`MUXIVO_DEBUG=1`, which prints the same detail to the console.
+Running Muxivo from Terminal with `MUXIVO_DEBUG=1` prints what the player
+decided and why. Copying that in is the single most useful thing you can send.
 
 ---
 
