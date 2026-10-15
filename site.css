@@ -1,0 +1,146 @@
+/* Muxivo site: one deliberate dark theme, scroll-snap slides with arrow-key
+   navigation. Same deck format as the Veilbox privacy page, recoloured to the
+   Muxivo icon's orange. Shared by every page on the site. */
+:root{
+  --bg:#0a0a0b; --card:#161618; --card2:#1d1d20; --line:rgba(255,255,255,.10);
+  --txt:#f5f5f7; --dim:#9a9aa2; --dimmer:#6b6b70;
+  --accent:#f0641e; --accent-dim:rgba(240,100,30,.14); --good:#30d158; --bad:#ff6961;
+  color-scheme:dark;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* top navigation */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:10;height:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px;
+  background:rgba(10,10,11,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.topnav .brand{display:flex;align-items:center;gap:9px;color:var(--txt);text-decoration:none;
+  font-weight:700;font-size:15px;letter-spacing:-.01em;flex-shrink:0}
+.topnav .brand img{width:26px;height:26px}
+.topnav .links{display:flex;gap:4px}
+.topnav .links a{color:var(--dim);text-decoration:none;font-size:13.5px;font-weight:600;
+  padding:6px 10px;border-radius:8px}
+.topnav .links a:hover{color:var(--txt);background:rgba(255,255,255,.06)}
+.topnav .links a[aria-current="page"]{color:var(--accent);background:var(--accent-dim)}
+
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;position:relative;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:84px 24px 88px}
+.inner{width:min(880px,100%)}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-dim);
+  padding:5px 12px;border-radius:20px;margin-bottom:18px}
+h1{font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-.02em;line-height:1.06;text-wrap:balance}
+h2{font-size:clamp(26px,4.4vw,40px);font-weight:800;letter-spacing:-.015em;line-height:1.12;
+  margin-bottom:18px;text-wrap:balance}
+.lede{font-size:clamp(16px,2.2vw,20px);color:var(--dim);line-height:1.55;max-width:62ch;margin-top:16px}
+.lede strong{color:var(--txt)}
+p{color:var(--dim);line-height:1.6;font-size:15.5px}
+code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em;color:var(--txt);
+  background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px}
+.num{position:absolute;top:72px;right:34px;font-size:12px;color:var(--dimmer);letter-spacing:.1em}
+.hint{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);color:var(--dimmer);
+  font-size:12px;z-index:5;background:rgba(10,10,11,.7);padding:6px 14px;border-radius:20px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:opacity .3s;white-space:nowrap}
+.hint.gone{opacity:0;pointer-events:none}
+.titleicon{width:120px;height:120px;filter:drop-shadow(0 12px 34px rgba(240,100,30,.28));margin-bottom:26px}
+.center{text-align:center;display:flex;flex-direction:column;align-items:center}
+.center .lede{text-align:center}
+.stamp{margin-top:22px;font-size:13px;color:var(--dimmer);letter-spacing:.04em}
+
+/* lists */
+ul{list-style:none;margin-top:22px}
+li{font-size:15.5px;color:var(--dim);line-height:1.6;padding:10px 0 10px 30px;position:relative;
+  border-bottom:1px solid rgba(255,255,255,.05)}
+li:last-child{border-bottom:none}
+li::before{content:"•";position:absolute;left:6px;color:var(--accent);font-weight:700}
+li em{color:var(--txt);font-style:normal;font-weight:600}
+ul.never li::before{content:"✕";color:var(--accent);font-weight:800;font-size:13px}
+ul.stay li::before{content:"▪";color:var(--accent)}
+ol.steps{list-style:none;counter-reset:s;margin-top:18px}
+ol.steps li{counter-increment:s;padding-left:34px}
+ol.steps li::before{content:counter(s);left:4px;top:11px;width:20px;height:20px;border-radius:50%;
+  background:var(--accent-dim);font-size:11.5px;display:flex;align-items:center;justify-content:center}
+
+/* two-column */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.col h3{font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.col.a h3{color:var(--dim)} .col.b h3{color:var(--accent)}
+.col ul{margin-top:0}
+.col li{font-size:14px;padding:8px 0 8px 24px}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-top:14px}
+.card b{font-size:15.5px;display:block;margin-bottom:4px}
+.card span{color:var(--dim);font-size:14px;line-height:1.55;display:block}
+.card span em{color:var(--txt);font-style:normal;font-weight:600}
+.card .path{color:var(--accent);font-weight:600;display:inline}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.cols.three{grid-template-columns:repeat(3,1fr);width:100%;text-align:left}
+.cols.three p{font-size:14px}
+blockquote{border-left:3px solid var(--accent);padding:6px 0 6px 18px;margin-top:24px;
+  font-size:16px;color:var(--txt);line-height:1.55;font-weight:500;max-width:56ch}
+.tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--accent);
+  background:var(--accent-dim);padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:2px;text-transform:uppercase}
+.tag.free,.free{color:var(--good);background:rgba(48,209,88,.14)}
+.tag.later{color:var(--dim);background:rgba(255,255,255,.08)}
+.endlinks{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+.endlinks.left{justify-content:flex-start}
+.btn{background:var(--accent);color:#141414;font-weight:700;font-size:14.5px;
+  padding:11px 22px;border-radius:12px;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.small{font-size:13px;padding:8px 16px;border-radius:10px}
+
+/* downloads (samples) */
+.file{display:flex;gap:18px;align-items:center;justify-content:space-between}
+.file .meta{min-width:0}
+.file b{word-break:break-all}
+
+/* full-text section appended below the deck: the canonical document */
+.doc{scroll-snap-align:start;background:var(--card);border-top:2px solid var(--accent);
+  padding:84px 24px 96px}
+.doc .inner{width:min(720px,100%);margin:0 auto}
+.doc h2{font-size:26px;margin:0 0 6px}
+.doc .updated{color:var(--dimmer);font-size:13px;margin-bottom:26px}
+.doc h3{font-size:19px;color:var(--txt);margin:34px 0 10px}
+.doc h4{font-size:16px;color:var(--txt);margin:24px 0 8px}
+.doc p{margin-bottom:10px;font-size:15px}
+.doc ul,.doc ol{margin:8px 0 12px 20px}
+.doc ol{list-style:decimal;padding-left:8px}
+.doc ul li{color:var(--dim);font-size:15px;line-height:1.6;margin-bottom:4px;padding:2px 0 2px 22px;border:none}
+.doc ol li{color:var(--dim);font-size:15px;line-height:1.6;margin-bottom:4px;padding:2px 0 2px 4px;border:none}
+.doc ol li::before{content:none}
+.doc ul li::before{left:4px}
+.doc strong{color:var(--txt)}
+.doc hr{border:none;border-top:1px solid var(--line);margin:30px 0}
+
+/* footer */
+.foot{scroll-snap-align:end;padding:28px 24px 64px;text-align:center;border-top:1px solid var(--line)}
+.foot p{font-size:12.5px;color:var(--dimmer);max-width:70ch;margin:0 auto}
+.foot nav{margin-bottom:12px;font-size:13px}
+.foot nav a{color:var(--dim);text-decoration:none;margin:0 8px}
+.foot nav a:hover{color:var(--accent)}
+
+@media(max-width:700px){
+  .cols,.cols.three,.grid2{grid-template-columns:1fr}
+  .num{display:none}
+  .file{flex-direction:column;align-items:flex-start;gap:12px}
+}
+@media(max-width:560px){
+  .topnav{padding:0 10px;gap:6px}
+  .topnav .brand span{display:none}
+  .topnav .links{gap:0}
+  .topnav .links a{font-size:12.5px;padding:6px 7px}
+  .slide{padding:76px 16px 80px}
+  .doc{padding:76px 16px 88px}
+  .btn{font-size:14px;padding:10px 18px}
+}
+@media(max-width:350px){.topnav .links a{font-size:11.5px;padding:6px 5px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
